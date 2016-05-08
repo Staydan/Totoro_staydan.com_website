@@ -1,0 +1,43 @@
+// @import "../common/common.styl"
+// @import '../common/header.styl'
+
+.register-steps
+    width: $header-split-width
+    border-top: 2px solid #7ED321
+    margin-top: -2px
+    .content
+        text-align: right
+        color: $primary-color-dark
+        padding: 20px 50px 20px 0px
+        .page-title
+            font-size: 1.4rem
+            padding-right: 1rem
+            font-weight: bold
+        ul.steps-list
+            li
+                padding: 10px 0px
+                list-style: none
+                .input-status
+                    width: 10px
+                    padding-right: 5px
+                &.error
+                    color: $brand-danger
+                &.success
+                    color: $brand-success
+.register-form
+    width: $page-width - $header-split-width
+    border-left: 2px solid $primary-color
+    margin-top: -2px
+    box-sizing: border-box
+    .content
+        padding-left: 0
+        .register-item
+            input, a
+                display: block
+                width: 280px
+            input
+                border-left: none
+            padding: 20px 0px
+        .login-btn
+            a
+                font-size: 0.8rem !important

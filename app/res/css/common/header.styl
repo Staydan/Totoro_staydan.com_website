@@ -1,0 +1,113 @@
+@import './toggle-menu-anim.styl'
+@import './flip-anim.styl'
+
+$header-height = 60px
+$header-split-width = 350px
+$nav-height = 50px
+$account-menu-Height = 30px
+
+.web-menu
+    position: fixed
+    right: 5px
+    top: 0
+    width: 100px
+    text-align: center
+    z-index: 10
+    .web-menu-btn
+        position: relative
+        padding-right: 10px
+        color: $primary-color
+        line-height: $header-height
+        height: $header-height
+        text-align: center
+        &:hover
+            background-color: $primary-color
+            border-right: 2px solid $primary-color-dark
+            color: #fff
+    ul.menu-list
+        position: relative
+        li
+            cursor: pointer
+            font-size: 0.8rem
+            list-style: none
+            border-right: 2px solid $primary-color
+            text-align: left
+            height: $account-menu-Height
+            line-height: $account-menu-Height
+            padding-left: 1.5rem
+            &:hover
+                background-color: $primary-color
+                border-right: 2px solid $primary-color-dark
+                a
+                    color: #fff
+
+.header-bar
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    z-index: 500
+    text-align: center
+    font-size: 12px
+    height: $header-height
+    line-height: $header-height
+    background-color: #fff
+    border-bottom: 1px solid $primary-color
+    .logo-wrapper
+        position: relative
+        transform: rotateY(180deg)
+        height: $header-height
+        line-height: $header-height
+        -webkit-transform: rotateY(180deg) /* Chrome and Safari */
+        -moz-transform: rotateY(180deg) /* Firefox */
+        .logo-header
+            width: 48px
+            height: auto
+            text-align: center
+            vertical-align: middle
+        .page-title
+            position: relative
+            width: 20%
+            margin: 0 auto
+            top: $header-height * -1
+            font-size: 16px
+            font-weight: bold
+            color: $primary-color
+            -webkit-backface-visibility: hidden
+            -moz-backface-visibility: hidden
+            -ms-backface-visibility: hidden
+            -o-backface-visibility: hidden
+            backface-visibility: hidden
+    .title
+        font-size: 16px
+        padding-left: 30px
+        font-weight: bold
+        color: $primary-color-dark
+    .header-divider
+        width: $header-split-width
+        background-color: $primary-color
+        height: 2px
+    nav.nav-bar
+        position: relative
+        top: $header-height * -1
+        height: $header-height
+        line-height: $header-height
+        text-align: center
+        margin: 0 auto
+        width: 80%
+        color: $primary-color
+        ul
+            display: flex
+            display: -webkit-flex
+            li
+                flex: 1
+                cursor: pointer
+                -webkit-align-items: center
+                list-style: none
+                &:hover
+                    background-color: $primary-color
+                    a
+                        color: #fff
+        &:hover
+            background-color: #fff
+            border-bottom: 1px solid $primary-color

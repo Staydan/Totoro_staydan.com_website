@@ -1,0 +1,23 @@
+.toggle-menu-transition
+    transition: all .5s ease
+    &.toggle-menu-enter
+        opacity: 0
+        animation: jump-in 0.5s
+    &.toggle-menu-leave
+        opacity: 0
+        animation: jump-out .5s
+@keyframes jump-in
+    0%
+        transform: scale(0)
+    50%
+        transform: scale(1.5)
+    100%
+        transform: scale(1)
+@keyframes jump-out
+    0%
+        transform: scale(1)
+    50%
+        transform: scale(1.5)
+    100%
+        transform: scale(0)
+

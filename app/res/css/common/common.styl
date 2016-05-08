@@ -1,0 +1,99 @@
+@import "./color.styl"
+
+$page-width = 1024px
+$browser-default-font-size = 10px /*变量的值可以根据自己需求定义*/
+
+// @function rem($px)
+//     @return $px / $browser-default-font-size * 1rem
+pre
+    display: inline
+    width: 80ch /* classic terminal width for code sections */
+
+html, body
+    margin: 0
+    padding: 0
+    font-size: $browser-default-font-size /* 10 ÷ 16 × 100% = 62.5% */
+
+body
+    font-family: 'Pingfang SC', 'Helvetica Neue', Helvetica, Arial, sans-serif
+    color: #fff
+    min-width: 230px
+    margin: 0 auto
+    -webkit-font-smoothing: antialiased
+    -moz-font-smoothing: antialiased
+    font-smoothing: antialiased
+    font-weight: 600
+    transition: .4s all linear
+
+// @mixin clearfix
+//     &:before,
+//     &:after
+//         content: ""
+//         display: table
+//     &:after
+//         clear: both
+//         overflow: hidden
+
+.clearfix
+    @include clearfix
+.row
+    width: 100%
+    padding: 0px 10px
+.btn
+    margin: 0
+    padding: 0
+    border: 0
+    font-size: 1.5rem
+    vertical-align: baseline
+    color: #fff
+    padding: 10px 15px
+    -webkit-font-smoothing: antialiased
+    -moz-font-smoothing: antialiased
+    font-smoothing: antialiased
+    @mixins appearance(none)
+    text-align: center
+.btn-primary
+    background-color: $primary-color
+.btn-link
+    color: $gray-color
+    background-color: #fff
+
+a, a:visited, a:hover, a:active
+    text-decoration: none;
+    color: inherit;
+
+button,
+input[type="checkbox"]
+    outline: none
+input[type="text"]
+    padding: 10px 15px
+    color: $gray-color
+    font-size: 1.5rem
+    border: 1px solid $gray-color
+    &:hover
+        border: 1px solid $primary-color
+    @include input-placeholder
+        color: $gray-color
+        font-style: italic
+        font-size: 1.2rem
+        text-align: center
+        letter-spacing: 1rem
+.hidden
+    display: none
+
+.pull-left
+    float: left
+.pull-right
+    float: right
+
+section.body
+    // margin-top: rem(60px)
+    margin-top: 60px
+
+#app
+    position: absolute
+    width: 100%
+    top: 0
+    left: 0
+    right: 0
+    font-size: $browser-default-font-size
