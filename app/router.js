@@ -4,20 +4,23 @@
 // include other views
 var notFoundView = require('./views/404.vue');
 var indexView = require('./views/index.vue');
-var mineView = require('./views/mine.vue');
-var mineAppListView = require('./views/mine/appList.vue');
-var mineProfileView = require('./views/mine/profile.vue');
-var userView = require('./views/user.vue');
-var userRegisterView = require('./views/user/register.vue');
-var userLoginView = require('./views/user/login.vue');
-var userResetPwdView = require('./views/user/resetPwd.vue');
-var userActiveWelcomeView = require('./views/user/activeWelcome.vue');
 
-// wedding page
-var weddingView = require('./views/wedding.vue');
-var weddingPhotoView = require('./views/wedding/photo.vue');
-var weddingGallaryView = require('./views/wedding/gallary.vue');
-var weddingHomeView = require('./views/wedding/home.vue');
+var productView = require('./views/product.vue');
+
+// var mineView = require('./views/mine.vue');
+// var mineAppListView = require('./views/mine/appList.vue');
+// var mineProfileView = require('./views/mine/profile.vue');
+// var userView = require('./views/user.vue');
+// var userRegisterView = require('./views/user/register.vue');
+// var userLoginView = require('./views/user/login.vue');
+// var userResetPwdView = require('./views/user/resetPwd.vue');
+// var userActiveWelcomeView = require('./views/user/activeWelcome.vue');
+
+// // wedding page
+// var weddingView = require('./views/wedding.vue');
+// var weddingPhotoView = require('./views/wedding/photo.vue');
+// var weddingGallaryView = require('./views/wedding/gallary.vue');
+// var weddingHomeView = require('./views/wedding/home.vue');
 
 module.exports = function (router) {
     var routers = {
@@ -26,6 +29,12 @@ module.exports = function (router) {
         },
         '/': {
             component: indexView
+        },
+        '/home': {
+            component: indexView
+        },
+        '/product/:name': {
+            component: productView
         }
         // '/mine': {
         //     component: mineView,
@@ -70,6 +79,11 @@ module.exports = function (router) {
         //     }
         // }
     };
+
+    // redirect
+    router.redirect({
+        '/': '/home'
+    });
 
     router.map(routers);
 }

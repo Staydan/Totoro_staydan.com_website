@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/DanielZhu/Staydan.com#readme",
   "dependencies": {
+    "slick-carousel": "^1.6.0",
     "vue-router": "^0.7.13",
     "vuex": "^0.6.3"
   },

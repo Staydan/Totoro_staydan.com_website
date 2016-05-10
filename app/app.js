@@ -9,7 +9,8 @@ var Vue = require('vue');
 var VueRouter = require('vue-router');
 
 // include the config file
-// var config = require('./config');
+window.jQuery = window.$ = require('./deps/jquery.min');
+window.Vivus = require('./deps/vivus.min');
 
 // include the main view
 var routerMap = require('./router');

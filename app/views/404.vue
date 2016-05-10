@@ -11,7 +11,7 @@
 module.exports = {
   data: function () {
     return {
-      msg: 'The page you want to visit is not ready!'
+      msg: 'The page you want to visit is not ready! Contact me: enterzhu@gmail.com'
     }
   }
 }

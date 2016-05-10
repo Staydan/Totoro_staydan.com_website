@@ -7,12 +7,12 @@
         <div class="showcase-item-square" :class="{'hovering': hovering}" v-on:mouseover="hovering = true" v-on:mouseleave="hovering = false">
             <div class="showcase-meta" transition="wipe-bottom" :class="{'wipe-bottom-enter': hovering, 'wipe-bottom-leave': !hovering}">
                 <div class="showcase-meta-name">
-                    <a href="{{detailData.link}}" target="_blank">
+                    <a href="javascript:;" v-on:click="seeProdcutDetail(detailData)"  target="_blank">
                         <div v-text="detailData.name"></div>
                     </a>
                     <div class="icon-op">
-                        <img src="../res/images/download_crx.png" class="icon" v-on:click="downloadPkg(detailData.pkg)" v-if="isChrome && detailData.tag.indexOf('Chrome Extension') !== -1">
-                        <img src="../res/images/clip.png" class="icon" v-on:click="redirectOut(detailData.link)" v-if="detailData.tag.indexOf('Chrome Extension') === -1">
+                        <img src="../res/images/download_crx.svg" class="svg icon" v-on:click="seeProdcutDetail(detailData)" v-if="isChrome && detailData.tag.indexOf('Chrome Extension') !== -1">
+                        <img src="../res/images/clip.png" class="icon" v-on:click="seeProdcutDetail(detailData)" v-if="detailData.tag.indexOf('Chrome Extension') === -1">
                     </div>
                 </div>
                 <div class="showcase-meta-desc" v-text="detailData.desc"></div>
@@ -34,18 +34,25 @@
         props: ['detailData'],
         data: function () {
             return {
-                enterStamp: 0,
+                entryStamp: 0,
                 hovering: false,
                 isChrome: /chrom(e|ium)/.test(navigator.userAgent.toLowerCase())
             }
         },
         ready: function () {
-            this.enterStamp = new Date().getTime();
+            this.entryStamp = new Date().getTime();
         },
         methods: {
-            redirectOut: function (link) {
-                tj.trackEventTJ(tj.category.index, 'redirectOut');
-                window.open(link, '_blank');
+            seeProdcutDetail: function (product) {
+                tj.trackEventTJ(tj.category.index, 'seeProdcutDetail');
+                clearInterval(window.timerAlarm);
+                document.body.style.background = 'none';
+                if (product.key === 'xd.blog') {
+                    window.open(product.link, '_blank');
+                }
+                else {
+                    window.location.href = '/#!/product/' + product.key;
+                }
             },
             downloadPkg: function (pkgPath) {
                 tj.trackEventTJ(tj.category.index, 'downloadPkg');
@@ -57,7 +64,7 @@
                     tj.category.index,
                     'installChromeExt',
                     'clickedAfterStay',
-                    new Date().getTime() - this.enterStamp
+                    new Date().getTime() - this.entryStamp
                 );
 
                 chrome.webstore.install(

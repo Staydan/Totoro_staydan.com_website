@@ -49,12 +49,13 @@
             </ul>
         </div>
         <sd-showcases v-show="afterLogoAnim" :active-tag.sync="searchTag" transition="wipe-top"></sd-showcases>
-        <div class="footer" v-show="afterLogoAnim">© 2012 - 2016 Staydan.com<span class="footer-separator">·</span><span class="pro-codename-version">Internal Codename: Totoro v3.0.1</span></div>
+        <sd-footer :show.sync="afterLogoAnim"></sd-footer>
     </div>
 </template>
 
 <script>
 var tj = require('../libs/tj.js');
+var util = require('../libs/util.js');
 module.exports = {
     data: function () {
         return {
@@ -71,6 +72,7 @@ module.exports = {
         }
     },
     ready: function () {
+        util.replaceImgWithSvg();
         tj.trackPageViewTJ(tj.pageLists.index);
         this.setAlarm();
     },
@@ -83,35 +85,21 @@ module.exports = {
                 this.searchTag === navItem;
             }
         },
-        paddingZeroFront: function (value, length) {
-            value = String(value);
-
-            while (value.length < length) {
-                value = '0' + value;
-            }
-            return value;
-        },
-        refreshLocalTime: function () {
-            var date = new Date();
-
-            this.timeNow = this.paddingZeroFront(date.getHours(), 2) + ':' + this.paddingZeroFront(date.getMinutes(), 2) + ':' + this.paddingZeroFront(date.getSeconds(), 2);
-            this.updateFrontColor();
-        },
         updateFrontColor: function () {
+            this.timeNow = util.getLocalTime();
             this.timeColor = '#' + this.timeNow.replace(/\:/g, '');
             document.body.style.background = this.timeColor;
             var showcaseTags = document.querySelectorAll('.showcase-tag')
             for (var i = 0; i < showcaseTags.length; i++) {
                 showcaseTags[i].style.color = this.timeColor;
             }
-            // document.body.style.opacity = 0.75;
         },
         setAlarm: function () {
             var self = this;
-            var timerAlarm = setInterval(this.refreshLocalTime, 500);
+            window.timerAlarm = setInterval(this.updateFrontColor, 500);
             setTimeout(function () {
                 self.sdLogoTimestampOpacity = 1;
-                new Vivus('sd-logo', {duration: 250, type: 'oneByOne'}, function () {
+                new Vivus('sd-logo', {duration: 150, type: 'oneByOne'}, function () {
                         self.afterLogoAnim = true;
                     }
                 );
@@ -119,7 +107,8 @@ module.exports = {
         }
     },
     components: {
-        sdShowcases: require('../components/showcases.vue')
+        sdShowcases: require('../components/showcases.vue'),
+        sdFooter: require('../components/footer.vue')
     }
 }
 </script>

@@ -51,17 +51,6 @@ gulp.task('style', function () {
     .pipe(gulp.dest('output'));
 });
 
-gulp.task('copyExtFilesOnlyJS', function () {
-    gulp.src([
-        './eventPage.js'
-    ], {
-        base: './'
-    })
-    .pipe(uglify())
-    .on('error', gutil.log)
-    .pipe(gulp.dest('output'));
-});
-
 gulp.task('libScript', function () {
     gulp.src([
         './src/libs/**'

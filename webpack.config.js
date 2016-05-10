@@ -20,7 +20,7 @@ var plugins = [
     // 使用 ProvidePlugin 加载使用率高的依赖库
     // new webpack.ProvidePlugin({
     //   $: 'jQuery',
-    //   jQuery: 'jQuery',
+    //   Vivus: 'Vivus',
     //   'window.jQuery': 'jQuery'
     // })
 ];
@@ -41,7 +41,7 @@ module.exports = {
     entry: entry,
     output: {
         path: path.resolve(__dirname, buildPath),
-        publicPath: '/dist/',
+        publicPath: './dist/',
         filename: 'build.js',
         chunkFilename:"[id].build.js?[chunkhash]"
     },
@@ -73,6 +73,9 @@ module.exports = {
             test: /\.(jpg|png|gif)$/,
             loader: 'file-loader?name=images/[hash].[ext]'
         }, {
+        //     test: /\.(jpe?g|png|gif|svg)$/i,
+        //     loader: 'file'
+        // }, {
             test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
             loader: 'url-loader?limit=10000&minetype=application/font-woff'
         }, {

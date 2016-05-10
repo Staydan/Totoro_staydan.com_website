@@ -8,11 +8,13 @@
 var _hmt = _hmt || [];
 var SdTJ = {
     category: {
-        index: 'index'
+        index: 'index',
+        product: 'product'
     },
 
     pageLists: {
-        index: '/index'
+        index: '/index',
+        product: '/product'
     },
 
    /**
