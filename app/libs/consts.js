@@ -38,6 +38,19 @@ var consts = {
             richDesc: '小丹的个人站点，欢迎试用各种小作品，有任何问题可以直接gmail Xiaodan，或者在Twitter、微博上@我'
         },
         {
+            key: 'time.using.middlewar',
+            name: 'Time Using Middleware',
+            link: 'https://www.npmjs.com/package/time-using-middleware',
+            desc: 'A tool to collect time cost for everything, and export performance testing reports to md, HTML & pdf easily',
+            coverImg: 'http://staydan.com/sweet/homePage/img/time-using-middleware-ad.png',
+            tag: ['npm', 'Open Source', 'Tools'],
+            preImgs: [
+                'http://staydan.com/sweet/homePage/preImgs/time.using.middleware/cl.png'
+            ],
+            repo: 'https://github.com/DanielZhu/time-using-middleware',
+            richDesc: 'A tool to collect time cost for requests, waiting for HTML back, rendering page and etc., also it can export performance testing reports to HTML & pdf easily.<br><br><h4>Features</h4><br><br>- Export Table Reports using Command Line window in Markdown format<br>- Recording the data of each page session<br>- Record pages by Regex Expression filters defined in Options<br>- Complete the page collect session until it recieve the COMPLETE signal by <br>imeUsingMiddlewareCollectFinish<br>- Support those Pages which are consist of by both Nodejs side render and Front-end JS work. The cookie `mtKey` can tracking all of them<br>- All the time attributes are defined by Developers(You)<br><br><h4>Notice</h4><br>This timing tool is under constructing right now, currenlty I\'m using it to measure performance when calling APIs from nodejs, and support collect all the key-value pair data throung two public methods: `addTimeRecord` & `finishRecording`.<br><br>So, it need users(usually developers) to write some codes in their project to collect data and send back to this middleware. All the log files will stored in which you specified in the options.<br><br>'
+        },
+        {
             key: 'liqi.newtab',
             name: '利器 · 灵感生成器 New Tab',
             link: 'https://chrome.google.com/webstore/detail/lidppokaooioojchghdjekhcgdjkkohe',

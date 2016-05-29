@@ -4,7 +4,7 @@
 
 <template>
     <ul class="showcases-container">
-        <li v-for="showcase in showcases | searchByTag activeTag" class="showcase-item">
+        <li v-for="showcase in showcases | searchByTag activeTag" class="showcase-item" transition="filtered">
             <sd-showcase :detail-data.sync="showcase"></sd-showcase>
         </li>
     </ul>

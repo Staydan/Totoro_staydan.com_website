@@ -61,6 +61,7 @@ module.exports = {
         return {
             navs: [
                 'Game',
+                'NPM',
                 'Tools',
                 'Extension'
             ],

@@ -5,3 +5,4 @@ world/.sass-cache
 node_modules
 app/i18n
 app/models/weddingStore.js
+output

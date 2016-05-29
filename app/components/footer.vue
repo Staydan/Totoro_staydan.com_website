@@ -9,7 +9,7 @@
         </div>
         <div class="footer-separator"></div>
         <div>
-            © 2012 - 2016 Staydan.com<span class="dot-separator">·</span><span class="pro-codename-version">Internal Codename: Totoro v3.0.2 16.05.10</span>
+            © 2012 - 2016 Staydan.com<span class="dot-separator">·</span><span class="pro-codename-version">Internal Codename: Totoro v3.0.3 16.05.29</span>
         </div>
     </footer>
 </template>

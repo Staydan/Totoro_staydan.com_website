@@ -100,5 +100,5 @@ gulp.task('resource', function () {
 
 gulp.task('default', ['webpack'], function () {
     console.log(process.env.NODE_ENV);
-    gulp.start('style', 'copyExtFilesExceptJS', 'resource', 'copyExtFilesOnlyJS', 'libScript');
+    gulp.start('style', 'copyExtFilesExceptJS', 'resource', 'libScript');
 });

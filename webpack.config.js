@@ -4,9 +4,9 @@ var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var vue = require('vue-loader');
-var isProduction = function() {
+var isProduction = function () {
     return process.env.NODE_ENV === 'production';
-}
+};
 
 // webpack插件
 var plugins = [
@@ -25,10 +25,11 @@ var plugins = [
     // })
 ];
 
-var entry = ['./app/app.js'],
-    cdnPrefix = '',
-    buildPath = './dist/',
-    publishPath = cdnPrefix + buildPath;
+var entry = ['./app/app.js'];
+var cdnPrefix = '';
+var buildPath = './dist';
+var publishPath = cdnPrefix + buildPath;
+
 // 生产环境js压缩和图片cdn
 if (isProduction()) {
     cdnPrefix = '';
@@ -41,9 +42,9 @@ module.exports = {
     entry: entry,
     output: {
         path: path.resolve(__dirname, buildPath),
-        publicPath: './dist/',
+        publicPath: '/dist/',
         filename: 'build.js',
-        chunkFilename:"[id].build.js?[chunkhash]"
+        chunkFilename: '[id].build.js?[chunkhash]'
     },
     resolveLoader: {
         root: path.join(__dirname, 'node_modules')
